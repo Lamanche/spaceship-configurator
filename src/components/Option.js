@@ -23,7 +23,7 @@ const Option = ({
       }}
     >
       <p>{name}</p>
-      <p>{index === 0 ? " " : `+${cost}€`}</p>
+      <p>{index === 0 ? "" : `+${cost}€`}</p>
       <div className='includes'>
         {includes.map((xtra, index) => {
           return (
