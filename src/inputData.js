@@ -50,7 +50,7 @@ export const data = {
       name: "Sport",
       cost: 100,
       includes: [
-        "Air contitioning",
+        "Air conditioning",
         "Cloth seats",
         "Fm radio",
         "Personal tech support",
