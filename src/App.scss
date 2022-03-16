@@ -12,7 +12,7 @@ $green-bg: #1c3c16;
 
 .active {
   border: 1px solid $border-active !important;
-  filter: drop-shadow(0px 0px 3px #7bf762);
+  box-shadow: 0px 0px 15px rgba(123, 247, 98, 0.2);
 
   p {
     color: $text-active;
