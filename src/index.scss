@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
 
-$main-bg-color: #051544;
+$bg-main: #051544;
 
 * {
   box-sizing: border-box;
@@ -12,7 +12,7 @@ body {
   font-family: "Roboto Mono", monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: $main-bg-color;
+  background-color: $bg-main;
   font-size: clamp(0.35rem, -0.0111rem + 1.6049vw, 1rem);
   line-height: 1;
   width: 100%;
