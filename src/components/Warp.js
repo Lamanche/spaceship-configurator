@@ -1,14 +1,11 @@
 import React from "react";
 
-const Warp = ({ index, value, cost, selectedIndex, setSelected }) => {
+const Warp = ({ index, value, cost, selectedIndex, handleSelect }) => {
   return (
     <div
       className={`power-container ${index === selectedIndex && "active"}`}
-      onClick={(e) => {
-        setSelected((prevState) => ({
-          ...prevState,
-          warp: { index: index, cost: cost },
-        }));
+      onClick={() => {
+        handleSelect("warp", index, cost);
       }}
     >
       <p>{value}</p>

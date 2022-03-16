@@ -1,11 +1,11 @@
 import "./App.scss";
 import { useState } from "react";
-import { data } from "./inputData";
+import { data } from "./data/inputData";
 import Color from "./components/Color";
 import Power from "./components/Power";
 import Warp from "./components/Warp";
 import Option from "./components/Option";
-import CostOutput from "./components/CostOutput";
+import CostTotal from "./components/CostTotal";
 
 function App() {
   const [selected, setSelected] = useState({
@@ -16,13 +16,20 @@ function App() {
     options: { index: 0, cost: 0 },
   });
 
+  const handleSelect = (name, index, cost) => {
+    setSelected((prevState) => ({
+      ...prevState,
+      [name]: { index: index, cost: cost },
+    }));
+  };
+
   return (
     <main className='main-container'>
-      <h1 className='headline'>Spaceship configurator</h1>
+      <h1 className='main-container__headline'>Spaceship configurator</h1>
       <div className='main-wrapper'>
-        <div className='main-left'>
+        <div className='main-wrapper__left'>
           <section className='section-container'>
-            <h1 className='section-name'>Select color:</h1>
+            <h1 className='section-container__name'>Select color:</h1>
             {data.colors.map((color, index) => {
               return (
                 <Color
@@ -32,13 +39,13 @@ function App() {
                   cost={color.cost}
                   name={color.name}
                   selectedIndex={selected.color.index}
-                  setSelected={setSelected}
+                  handleSelect={handleSelect}
                 />
               );
             })}
           </section>
           <section className='section-container'>
-            <h1 className='section-name'>Select power:</h1>
+            <h1 className='section-container__name'>Select power:</h1>
             {data.powers.map((power, index) => {
               return (
                 <Power
@@ -47,13 +54,13 @@ function App() {
                   value={power.value}
                   cost={power.cost}
                   selectedIndex={selected.power.index}
-                  setSelected={setSelected}
+                  handleSelect={handleSelect}
                 />
               );
             })}
           </section>
           <section className='section-container'>
-            <h1 className='section-name'>Warp drive:</h1>
+            <h1 className='section-container__name'>Warp drive:</h1>
             {data.warps.map((warp, index) => {
               return (
                 <Warp
@@ -62,13 +69,13 @@ function App() {
                   value={warp.value}
                   cost={warp.cost}
                   selectedIndex={selected.warp.index}
-                  setSelected={setSelected}
+                  handleSelect={handleSelect}
                 />
               );
             })}
           </section>
           <section className='section-container'>
-            <h1 className='section-name'>Select option package:</h1>
+            <h1 className='section-container__name'>Select option package:</h1>
             {data.options.map((option, index) => {
               return (
                 <Option
@@ -78,14 +85,14 @@ function App() {
                   cost={option.cost}
                   includes={option.includes}
                   selectedIndex={selected.options.index}
-                  setSelected={setSelected}
+                  handleSelect={handleSelect}
                 />
               );
             })}
           </section>
         </div>
-        <div className='main-right'>
-          <CostOutput selected={selected} />
+        <div className='main-wrapper__right'>
+          <CostTotal selected={selected} />
         </div>
       </div>
     </main>

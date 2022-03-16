@@ -44,7 +44,7 @@ export const data = {
     {
       name: "Basic",
       cost: 0,
-      includes: ["Air contitioning", "Cloth seats", "Fm radio"],
+      includes: ["Air conditioning", "Cloth seats", "Fm radio"],
     },
     {
       name: "Sport",
@@ -60,7 +60,7 @@ export const data = {
       name: "Lux",
       cost: 500,
       includes: [
-        "Air contitioning",
+        "Air conditioning",
         "Luxury seats",
         "Fm radio",
         "Chrome wheel",

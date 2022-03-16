@@ -11,14 +11,14 @@ const CostOutput = ({ selected }) => {
   return (
     <div className='cost-container'>
       <div className='cost-wrapper'>
-        <div className='cost-left'>
+        <div className='cost-wrapper__left'>
           <p>Base price:</p>
           <p>Color:</p>
           <p>Power:</p>
           <p>Warp drive:</p>
           <p>Option package:</p>
         </div>
-        <div className='cost-right'>
+        <div className='cost-wrapper__right'>
           <p>{selected.base}€</p>
           <p>+{selected.color.cost}€</p>
           <p>+{selected.power.cost}€</p>
@@ -26,12 +26,12 @@ const CostOutput = ({ selected }) => {
           <p>+{selected.options.cost}€</p>
         </div>
       </div>
-      <div className='total'>
-        <div className='total-left'>
-          <p className='cost-total'>Total:</p>
+      <div className='cost-container__total'>
+        <div className='total__left'>
+          <p className='cost__total'>Total:</p>
         </div>
-        <div className='cost-right'>
-          <p className='cost-total'>{total}€</p>
+        <div className='cost__right'>
+          <p className='cost__total'>{total}€</p>
         </div>
       </div>
     </div>

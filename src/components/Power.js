@@ -1,14 +1,11 @@
 import React from "react";
 
-const Power = ({ index, value, cost, selectedIndex, setSelected }) => {
+const Power = ({ index, value, cost, selectedIndex, handleSelect }) => {
   return (
     <div
       className={`power-container ${index === selectedIndex && "active"}`}
-      onClick={(e) => {
-        setSelected((prevState) => ({
-          ...prevState,
-          power: { index: index, cost: cost },
-        }));
+      onClick={() => {
+        handleSelect("power", index, cost);
       }}
     >
       <p>{value} MW</p>

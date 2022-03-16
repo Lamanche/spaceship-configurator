@@ -5,16 +5,30 @@ $border-active: #7bf762;
 $border-inactive: #5a8f4f;
 $green-bg: #1c3c16;
 
+@mixin border-inactive {
+  border: 1px solid $border-inactive;
+  border-radius: 0.5em;
+}
+
+.active {
+  border: 1px solid $border-active !important;
+  filter: drop-shadow(0px 0px 3px #7bf762);
+
+  p {
+    color: $text-active;
+  }
+}
+
 .main-container {
   width: 59em;
   height: 100%;
   margin: 2em auto;
   padding: 2em;
   border: 1px solid $border-active;
-  border-radius: 8px;
+  border-radius: 0.5em;
 }
 
-.headline {
+.main-container__headline {
   margin-top: 0.33333em;
   margin-bottom: 3.20835em;
   font-size: 1.5em;
@@ -34,7 +48,7 @@ $green-bg: #1c3c16;
   display: flex;
 }
 
-.section-name {
+.section-container__name {
   position: absolute;
   top: -1.85em;
   font-size: 1.125em;
@@ -44,23 +58,14 @@ $green-bg: #1c3c16;
   margin: 0;
 }
 
-.active {
-  border: 1px solid $border-active !important;
-
-  p {
-    color: $text-active;
-  }
-}
-
 .color-container {
   height: 7em;
   width: 10em;
   margin: 0 2em 5em 0;
   display: flex;
   flex-direction: column;
-  border: 1px solid $border-inactive;
-  border-radius: 0.5em;
   color: $text-inactive;
+  @include border-inactive;
 
   div {
     height: 2em;
@@ -87,9 +92,8 @@ $green-bg: #1c3c16;
   margin: 0 2em 5em 0;
   display: flex;
   flex-direction: column;
-  border: 1px solid $border-inactive;
-  border-radius: 0.5em;
   color: $text-inactive;
+  @include border-inactive;
 
   p {
     margin: 1em auto;
@@ -110,9 +114,8 @@ $green-bg: #1c3c16;
   margin-right: 2em;
   display: flex;
   flex-direction: column;
-  border: 1px solid $border-inactive;
-  border-radius: 0.5em;
   color: $text-inactive;
+  @include border-inactive;
 
   p {
     letter-spacing: 0.1em;
@@ -130,30 +133,30 @@ $green-bg: #1c3c16;
     font-family: "Roboto";
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
-}
 
-.includes {
-  height: 8.25em;
-  width: 100%;
-  margin-top: auto;
-  padding-left: 1em;
-  padding-top: 1.1875em;
-  background-color: $green-bg;
-  border-radius: 0.5em;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  .options-container__includes {
+    height: 8.25em;
+    width: 100%;
+    margin-top: auto;
+    padding-left: 1em;
+    padding-top: 1.1875em;
+    background-color: $green-bg;
+    border-radius: 0.5em;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-  img {
-    margin-right: 0.334em;
-    height: 0.575em;
-    width: 0.7em;
-  }
+    img {
+      margin-right: 0.334em;
+      height: 0.575em;
+      width: 0.7em;
+    }
 
-  .item {
-    font-size: 0.75em;
-    font-family: "Roboto Mono" !important;
-    line-height: 0.833335em;
-    letter-spacing: 0;
-    margin: 0 0 0.5833em 0 !important;
+    .includes__item {
+      font-size: 0.75em;
+      font-family: "Roboto Mono" !important;
+      line-height: 0.833335em;
+      letter-spacing: 0;
+      margin: 0 0 0.5833em 0 !important;
+    }
   }
 }
 
@@ -174,44 +177,47 @@ $green-bg: #1c3c16;
     margin-left: 1em;
     margin-bottom: 1em;
     color: $text-active;
-    font-style: normal;
-    font-weight: 400;
     font-size: 0.875em;
     line-height: 1.28572em;
     letter-spacing: 0.2em;
   }
 
-  .cost-left {
+  .cost-wrapper__left {
     margin-right: 0.75em;
   }
 
-  .cost-right {
+  .cost-wrapper__right {
     > p {
       color: white;
     }
   }
 
-  .total-left {
+  .total__left {
     width: 11.85em;
   }
 
-  .total {
+  .cost-container__total {
     height: 4em;
     display: flex;
     align-items: center;
-    
     border-top: 1px solid $border-active;
   }
 
-  .cost-total {
+  .cost__right {
+    > p {
+      color: white;
+    }
+  }
+
+  .cost__total {
     font-size: 1.125em;
     margin-bottom: 0;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .headline {
-    font-size: clamp(0.75rem, -0.2625rem + 4.5000vw, 1.425rem);
+  .main-container__headline {
+    font-size: clamp(0.75rem, -0.2625rem + 4.5vw, 1.425rem);
   }
 
   .main-wrapper {
@@ -224,11 +230,11 @@ $green-bg: #1c3c16;
     margin-right: -2em;
   }
 
-  .section-name {
+  .section-container__name {
     left: 0;
   }
 
-  .main-left {
+  .main-wrapper__left {
     margin-bottom: 5em;
   }
 }

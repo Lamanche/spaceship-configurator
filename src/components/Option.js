@@ -1,6 +1,6 @@
 import React from "react";
-import polygon from "../Polygon.png";
-import polygonInactive from "../PolygonInactive.png";
+import polygon from "../images/polygon.png";
+import polygonInactive from "../images/polygonInactive.png";
 
 const Option = ({
   index,
@@ -8,26 +8,23 @@ const Option = ({
   cost,
   includes,
   selectedIndex,
-  setSelected,
+  handleSelect,
 }) => {
   const active = index === selectedIndex ? true : false;
 
   return (
     <div
-      className={`options-container ${active && "active"}`}
-      onClick={(e) => {
-        setSelected((prevState) => ({
-          ...prevState,
-          options: { index: index, cost: cost },
-        }));
+      className={`options-container ${index === selectedIndex && "active"}`}
+      onClick={() => {
+        handleSelect("options", index, cost);
       }}
     >
       <p>{name}</p>
-      <p>{index === 0 ? "" : `+${cost}€`}</p>
-      <div className='includes'>
+      {index !== 0 && <p>+{cost}€</p>}
+      <div className='options-container__includes'>
         {includes.map((xtra, index) => {
           return (
-            <p key={index} className='item'>
+            <p key={index} className='includes__item'>
               <img src={active ? polygon : polygonInactive} alt='' />
               {xtra}
             </p>
